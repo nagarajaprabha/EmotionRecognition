@@ -13,7 +13,7 @@ data = "";
 
 def loadFile():
     #TODO add the logic to loop through list of generated arff files;
-    dataset = arff.load(open('C:\output2.arff','r'));
+    dataset = arff.load(open('input\output2.arff','r'));
     #print(dataset['attributes'])
     
     #dataset contains two arrays namely 'attributes' and 'data'.'data' is 
