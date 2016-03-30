@@ -21,8 +21,8 @@ testData="";
 def loadFile():
     # TODO add the logic to loop through list of generated arff files;
     #trainingDataset = arff.load(open('input\emo_large.arff','r'));
-    trainingDataset = arff.load(open('input\\trainingdatalarge.arff','r'));
-    testDataset = arff.load(open('input\\happy.arff','r'));
+    trainingDataset = arff.load(open('input\\rftrainingdata.arff','r'));
+    testDataset = arff.load(open('input\\rfdataresultset2.arff','r'));
 
     print("*******************");
     #print(trainingDataset['attributes']);
@@ -57,29 +57,30 @@ def parse(data,testingData):
 
     #print(data[0:2, 0]);
 
-    print(data[0:3, 6554]);
+    #print(data[0:3, 6554]);
     #data=np.array(dataset['data']);
     #data = np.delete(data[::,0])
-    print(data.shape);
+    #print(data.shape);
     #print(data[0]);
     print('line 57')
     data_train = data[::,1:6554]
     data_result = data[::, 6554]
 
     print('line 68');
-    print(testingData);
+    #print(testingData);
     test_data = testingData[::,1:6554];
-    print(test_data);
+    #print(test_data);
 
     #data_result[0:5] = 'amgry';
     #data_result[5:10] = 'sad'
     #data_result[5] = 'happy';
 
-    data_result[:] = "angry"
-
+    data_result[0:18] = "angry";
+    data_result[18:37] = "happy";
+    data_result[37:55]="unhappy";
 
     print (data_result)
-    print (data_train.shape);
+    #print (data_train.shape);
     print (data_result.shape);
     forest = RandomForestClassifier(n_estimators = 100);
     print ('ready for RF');
